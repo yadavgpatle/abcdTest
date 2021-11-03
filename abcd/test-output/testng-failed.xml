@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="ChromeTest(failed)">
+    <parameter name="browser" value="Chrome"/>
+    <classes>
+      <class name="TestPackage.AnalysisTest">
+        <methods>
+          <include name="createPOMobject"/>
+          <include name="verify"/>
+          <include name="closeBrowser"/>
+          <include name="logoutApplication"/>
+          <include name="clearPOMobject"/>
+          <include name="launchBrowser"/>
+          <include name="loginToApplocation"/>
+        </methods>
+      </class> <!-- TestPackage.AnalysisTest -->
+      <class name="TestPackage.LoginTest">
+        <methods>
+          <include name="clearPOMobject"/>
+          <include name="logoutApplication"/>
+          <include name="closeBrowser"/>
+          <include name="launchBrowser"/>
+          <include name="createPOMobject"/>
+          <include name="verify2"/>
+          <include name="loginToApplocation"/>
+        </methods>
+      </class> <!-- TestPackage.LoginTest -->
+    </classes>
+  </test> <!-- ChromeTest(failed) -->
+  <test thread-count="5" name="FirefoxTest(failed)">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="TestPackage.AnalysisTest">
+        <methods>
+          <include name="createPOMobject"/>
+          <include name="verify"/>
+          <include name="closeBrowser"/>
+          <include name="logoutApplication"/>
+          <include name="clearPOMobject"/>
+          <include name="launchBrowser"/>
+          <include name="loginToApplocation"/>
+        </methods>
+      </class> <!-- TestPackage.AnalysisTest -->
+      <class name="TestPackage.LoginTest">
+        <methods>
+          <include name="clearPOMobject"/>
+          <include name="logoutApplication"/>
+          <include name="closeBrowser"/>
+          <include name="launchBrowser"/>
+          <include name="createPOMobject"/>
+          <include name="verify2"/>
+          <include name="loginToApplocation"/>
+        </methods>
+      </class> <!-- TestPackage.LoginTest -->
+    </classes>
+  </test> <!-- FirefoxTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
