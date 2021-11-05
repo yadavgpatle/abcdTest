@@ -1,8 +1,10 @@
 package TestPackage;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -14,7 +16,9 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import BasePackage.Base;
+import PomClass.AnalysisPage;
 import PomClass.LoginPage;
+import testUtilities.TestUtils;
 
 
 
@@ -22,6 +26,8 @@ public class LoginTest extends Base{
 	
 	private WebDriver driver;
 	LoginPage loginpage;
+	AnalysisPage ana;
+	int testID;
 	
 	
 	
@@ -48,60 +54,51 @@ public class LoginTest extends Base{
 	public void createPOMobject()
 	{
 		loginpage = new LoginPage(driver);
+		ana = new AnalysisPage(driver);
 		
 	}
 	
 	@BeforeMethod
-	public void loginToApplocation() throws InterruptedException
+	public void loginToApplocation() throws InterruptedException, IOException
 	{
+
+		
 		loginpage.UserName();
 		
-		loginpage.Pass();
-		
-		
-		
+		loginpage.Pass();	
 		
 	}
 	
 	@Test
 	public void verify() throws InterruptedException
 	{
+		testID =100;
 		loginpage.continueButton();
 		
 		Thread.sleep(5000);
 		
-		String act = "https://my.exness.com/pa/";
+		String act = "https://my.exness.com/";
 		String exp = driver.getCurrentUrl();
 		System.out.println(exp);
 		SoftAssert soft = new SoftAssert();
 		soft.assertEquals(act, exp);
 		soft.assertAll();
 		
-	}
-	
-	@Test
-	public void verify2() throws InterruptedException
-	{
-		loginpage.continueButton();
+		ana.Analysis();
+		ana.Calander();
 		
 		Thread.sleep(5000);
-		
-		String act = "https://my.exness.com/pa/";
-		String exp = driver.getCurrentUrl();
-		System.out.println(exp);
-		SoftAssert soft = new SoftAssert();
-		soft.assertEquals(act, exp);
-		soft.assertAll();
-		
 	}
-	
-	
-		
 	
 	
 	@AfterMethod
-	public void logoutApplication()
+	public void logoutApplication(ITestResult result) throws IOException
+	
 	{
+		if(ITestResult.FAILURE == result.getStatus())
+		{
+			TestUtils.TakeScreenshot(driver, testID);
+		}
 		System.out.println("End");
 	}
 	

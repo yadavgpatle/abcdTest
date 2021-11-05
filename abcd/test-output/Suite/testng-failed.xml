@@ -4,17 +4,6 @@
   <test thread-count="5" name="ChromeTest(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="TestPackage.AnalysisTest">
-        <methods>
-          <include name="createPOMobject"/>
-          <include name="verify"/>
-          <include name="closeBrowser"/>
-          <include name="logoutApplication"/>
-          <include name="clearPOMobject"/>
-          <include name="launchBrowser"/>
-          <include name="loginToApplocation"/>
-        </methods>
-      </class> <!-- TestPackage.AnalysisTest -->
       <class name="TestPackage.LoginTest">
         <methods>
           <include name="clearPOMobject"/>
@@ -22,7 +11,7 @@
           <include name="closeBrowser"/>
           <include name="launchBrowser"/>
           <include name="createPOMobject"/>
-          <include name="verify2"/>
+          <include name="verify"/>
           <include name="loginToApplocation"/>
         </methods>
       </class> <!-- TestPackage.LoginTest -->
@@ -31,17 +20,6 @@
   <test thread-count="5" name="FirefoxTest(failed)">
     <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="TestPackage.AnalysisTest">
-        <methods>
-          <include name="createPOMobject"/>
-          <include name="verify"/>
-          <include name="closeBrowser"/>
-          <include name="logoutApplication"/>
-          <include name="clearPOMobject"/>
-          <include name="launchBrowser"/>
-          <include name="loginToApplocation"/>
-        </methods>
-      </class> <!-- TestPackage.AnalysisTest -->
       <class name="TestPackage.LoginTest">
         <methods>
           <include name="clearPOMobject"/>
@@ -49,7 +27,7 @@
           <include name="closeBrowser"/>
           <include name="launchBrowser"/>
           <include name="createPOMobject"/>
-          <include name="verify2"/>
+          <include name="verify"/>
           <include name="loginToApplocation"/>
         </methods>
       </class> <!-- TestPackage.LoginTest -->

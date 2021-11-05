@@ -12,8 +12,8 @@ import org.openqa.selenium.io.FileHandler;
 
 public class TestUtils {
 	
-	public void TakeScreenshot(int a) throws IOException{
-		WebDriver driver = new ChromeDriver();
+	public static void TakeScreenshot(WebDriver driver, int testID) throws IOException{
+		
 		
 		Date d = new Date(); ///object 
 
@@ -22,7 +22,7 @@ public class TestUtils {
 		
 		File source = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE); 
 
-		File dest = new File("E:\\Screen\\scr" + FileName);
+		File dest = new File("C:\\Users\\yadav\\git\\abcdTest\\abcd\\test-output\\ScreenS\\"+ "Test_" + testID + FileName);
 		
 		FileHandler.copy(source, dest);
 		
