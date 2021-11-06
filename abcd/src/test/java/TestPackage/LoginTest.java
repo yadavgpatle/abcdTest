@@ -1,5 +1,6 @@
 package TestPackage;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -15,6 +16,10 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
 import BasePackage.Base;
 import PomClass.AnalysisPage;
 import PomClass.LoginPage;
@@ -28,6 +33,8 @@ public class LoginTest extends Base{
 	LoginPage loginpage;
 	AnalysisPage ana;
 	int testID;
+	static ExtentTest test;
+	static ExtentHtmlReporter reporter;
 	
 	
 	
@@ -35,6 +42,9 @@ public class LoginTest extends Base{
 	@BeforeTest
 	@Parameters ("browser")
 	public void launchBrowser(String browser) throws InterruptedException {
+		reporter = new ExtentHtmlReporter("test-output"+File.separator+"ExtendReport"+File.separator+"extendReport.html");
+		ExtentReports extend = new ExtentReports();
+		extend.attachReporter(reporter);
 		if(browser.equalsIgnoreCase("Chrome"))
 		{
 			driver = openChromeBrowser();

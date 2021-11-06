@@ -22,7 +22,7 @@ public class TestUtils {
 		
 		File source = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE); 
 
-		File dest = new File("C:\\Users\\yadav\\git\\abcdTest\\abcd\\test-output\\ScreenS\\"+ "Test_" + testID + FileName);
+		File dest = new File("test-output\\testScreenshots\\"+ "Test_" + testID + FileName);
 		
 		FileHandler.copy(source, dest);
 		
